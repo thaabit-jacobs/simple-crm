@@ -4,7 +4,7 @@ import data from './mockData.js';
 
 function App() {
   return (
-    <div>
+    <div className="table-container">
         <table>
           <tr>
             <th>First Name</th>
@@ -18,7 +18,7 @@ function App() {
 
           {
             data.map(person => {
-              return 
+              return (
                 <tr>
                   <td>{person["First_name"]}</td>
                   <td>{person["Last_name"]}</td>
@@ -27,6 +27,7 @@ function App() {
                   <td>{person["Phone"]}</td>
                   <td>{person["DOB"]}</td>
                 </tr>
+              )
             })
           }
 

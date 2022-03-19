@@ -14,3 +14,16 @@ nav {
   padding: 0.5rem 1rem;
   font-size: 1.75rem;
 }
+
+table {
+  width: 80%;
+}
+
+th, td{
+  text-align: center;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}

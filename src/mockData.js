@@ -1,4 +1,4 @@
-[{"First_name":"Brianne","Last_name":"Adenot","Email":"badenot0@opera.com","Gender":"Female","Phone":"757-555-6389","DOB":"8/29/2021"},
+let data = [{"First_name":"Brianne","Last_name":"Adenot","Email":"badenot0@opera.com","Gender":"Female","Phone":"757-555-6389","DOB":"8/29/2021"},
 {"First_name":"Hillyer","Last_name":"Romand","Email":"hromand1@go.com","Gender":"Male","Phone":"357-138-8491","DOB":"10/20/2021"},
 {"First_name":"Chance","Last_name":"Letertre","Email":"cletertre2@sciencedaily.com","Gender":"Male","Phone":"721-766-9646","DOB":"4/3/2021"},
 {"First_name":"Debor","Last_name":"Albert","Email":"dalbert3@baidu.com","Gender":"Male","Phone":"879-795-7364","DOB":"12/25/2021"},
@@ -48,3 +48,5 @@
 {"First_name":"Jaquelin","Last_name":"Chatenier","Email":"jchatenier1b@webnode.com","Gender":"Male","Phone":"752-423-6031","DOB":"11/7/2021"},
 {"First_name":"Adriaens","Last_name":"Malden","Email":"amalden1c@github.com","Gender":"Male","Phone":"943-612-2036","DOB":"5/26/2021"},
 {"First_name":"Egon","Last_name":"Elvin","Email":"eelvin1d@a8.net","Gender":"Female","Phone":"250-440-7234","DOB":"10/17/2021"}]
+
+export default data;
