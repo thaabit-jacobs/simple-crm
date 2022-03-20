@@ -5,6 +5,8 @@ import data from './mockData.js';
 function App() {
   return (
     <div className="table-container">
+        <input type="text"/>
+        
         <table>
           <tr>
             <th>First Name</th>
