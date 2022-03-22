@@ -17,7 +17,18 @@ class App extends React.Component {
 }
 
 onHandleSortDOBSelectorChange(event){
+  let inputValue = event.target.value;
 
+  console.log(inputValue)
+  if(inputValue === "DESC"){
+      this.setState({
+        people: data.sort((person1, person2) => this.dateConverter(person1["DOB"]) -this.dateConverter(person2["DOB"]))
+      })
+  }else {
+    this.setState({
+      people: data.sort((person1, person2) => this.dateConverter(person2["DOB"]) -this.dateConverter(person1["DOB"]))
+    })
+  }
 }
 
 onHandleGenderSelectorChange(event) {
@@ -53,7 +64,15 @@ onHandleGenderSelectorChange(event) {
   }
 
   dateConverter(dateString){
+    let year = dateString.substring(dateString.lastIndexOf("/") + 1);    
+    let month = dateString.substring(0, dateString.indexOf("/"));    
+    let day = dateString.substring(dateString.indexOf("/") + 1, dateString.lastIndexOf("/"));
+
+    console.log("year ", year);
+    console.log("month ", month);
+    console.log("day ", day);
     
+    return new Date(year, month, day);
   }
 
   render (){
@@ -66,6 +85,11 @@ onHandleGenderSelectorChange(event) {
                 <option value="all">All</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
+            </select>
+
+            <select onChange={this.onHandleSortDOBSelectorChange}>
+                <option value="DESC">DESC</option>
+                <option value="ASCE">ASCE</option>
             </select>
           </div> 
   
