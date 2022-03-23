@@ -67,10 +67,6 @@ onHandleGenderSelectorChange(event) {
     let year = dateString.substring(dateString.lastIndexOf("/") + 1);    
     let month = dateString.substring(0, dateString.indexOf("/"));    
     let day = dateString.substring(dateString.indexOf("/") + 1, dateString.lastIndexOf("/"));
-
-    console.log("year ", year);
-    console.log("month ", month);
-    console.log("day ", day);
     
     return new Date(year, month, day);
   }
@@ -79,18 +75,11 @@ onHandleGenderSelectorChange(event) {
     return (
       <div className="table-container">
           <div className="input-container">
-            <input type="text" onChange={this.onHandleInputTextChange} placeholder="Search..."/>
+            <TextInput InputHandler={this.onHandleInputTextChange}/>
 
-            <select onChange={this.onHandleGenderSelectorChange}>
-                <option value="all">All</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
+            <GenderSelector genderSelectorHandler={this.onHandleGenderSelectorChange} />
 
-            <select onChange={this.onHandleSortDOBSelectorChange}>
-                <option value="DESC">DESC</option>
-                <option value="ASCE">ASCE</option>
-            </select>
+            <SortSelector sortSelector={this.onHandleSortDOBSelectorChange} />
           </div> 
   
           <table>
@@ -104,25 +93,52 @@ onHandleGenderSelectorChange(event) {
               <th>Action</th>
             </tr>
   
-            {
-              this.state.people.map(person => {
-                return (
-                  <tr key={person["First_name"].concat(person["Last_name"]).concat(person["email"])}>
-                    <td>{person["First_name"]}</td>
-                    <td>{person["Last_name"]}</td>
-                    <td>{person["Email"]}</td>
-                    <td>{person["Gender"]}</td>
-                    <td>{person["Phone"]}</td>
-                    <td>{person["DOB"]}</td>
-                  </tr>
-                )
-              })
-            }
-  
+            <TableRows people={this.state.people}/>
           </table>
       </div>
     );
   }
+}
+
+
+function TextInput(props){
+  return (
+    <input type="text" onChange={props.InputHandler} placeholder="Search..."/>
+  )
+}
+
+function GenderSelector(props){
+  return (
+    <select onChange={props.genderSelectorHandler}>
+    <option value="all">All</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+</select>
+  )
+}
+
+function SortSelector(props){
+  return(
+    <select onChange={props.sortSelector}>
+      <option value="DESC">DESC</option>
+      <option value="ASCE">ASCE</option>
+    </select>
+  )
+}
+
+function TableRows(props){
+  return props.people.map(person => {
+      return (
+        <tr key={person["First_name"].concat(person["Last_name"]).concat(person["email"])}>
+          <td>{person["First_name"]}</td>
+          <td>{person["Last_name"]}</td>
+          <td>{person["Email"]}</td>
+          <td>{person["Gender"]}</td>
+          <td>{person["Phone"]}</td>
+          <td>{person["DOB"]}</td>
+        </tr>
+      )
+  })
 }
 
 export default App;
